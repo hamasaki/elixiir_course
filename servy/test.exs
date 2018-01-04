@@ -62,6 +62,22 @@ Accept: */*
 
 """
 
+r9 = """
+GET /bears/new HTTP/1.1
+Host: example.com
+User-Agent: ExampleBrowser/1.0
+Accept: */*
+
+"""
+
+r10 = """
+GET /pages/contact HTTP/1.1
+Host: example.com
+User-Agent: ExampleBrowser/1.0
+Accept: */*
+
+"""
+
 # expected_response = """
 # HTTP/1.1 200 OK
 # Content-Type: text/html
@@ -69,3 +85,6 @@ Accept: */*
 
 # Bears, Lions, Tigers
 # """
+
+IO.puts Servy.Handler.handle(r10)
+
