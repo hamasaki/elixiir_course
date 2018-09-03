@@ -1,5 +1,9 @@
 defmodule Servy.Conv do
-  defstruct method: "", path: "", response_body: "", status: nil
+  defstruct method: "",
+            path: "",
+            params: %{},
+            response_body: "",
+            status: nil
 
   @status_reasons %{
     200 => "OK",
