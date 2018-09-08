@@ -22,15 +22,12 @@ defmodule Servy.Parser do
      }
   end
 
-  defp parse_headers([head | tail]),  do: parse_headers([head | tail], %{})
-
-  defp parse_headers([head | tail], headers) do
-    [key, value] = String.split(head, ": ")
-    headers = Map.put(headers, key, value)
-    parse_headers(tail, headers)
+  defp parse_headers(header_lines) do
+    Enum.reduce(header_lines, %{}, fn (line, acc) ->
+      [key, value] = String.split(line, ": ")
+      Map.put(acc, key, value)
+    end)
   end
-
-  defp parse_headers([], headers),  do: headers
 
   defp parse_params("application/x-www-form-urlencoded", params_string) do
     params_string

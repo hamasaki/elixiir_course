@@ -6,22 +6,6 @@ Accept: */*
 
 """
 
-r2 = """
-GET /bears HTTP/1.1
-Host: example.com
-User-Agent: ExampleBrowser/1.0
-Accept: */*
-
-"""
-
-r3 = """
-GET /bears/1 HTTP/1.1
-Host: example.com
-User-Agent: ExampleBrowser/1.0
-Accept: */*
-
-"""
-
 r4 = """
 DELETE /bears/1 HTTP/1.1
 Host: example.com
@@ -62,7 +46,7 @@ Accept: */*
 
 """
 
-r9 = """
+request = """
 GET /bears/new HTTP/1.1
 Host: example.com
 User-Agent: ExampleBrowser/1.0
@@ -95,6 +79,22 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 21
 
 name=Baloo&type=Brown
+"""
+
+request = """
+GET /bears HTTP/1.1
+Host: example.com
+User-Agent: ExampleBrowser/1.0
+Accept: */*
+
+"""
+
+request = """
+GET /bears/1 HTTP/1.1
+Host: example.com
+User-Agent: ExampleBrowser/1.0
+Accept: */*
+
 """
 
 IO.puts Servy.Handler.handle(request)
