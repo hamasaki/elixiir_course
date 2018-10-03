@@ -89,6 +89,8 @@ Accept: */*
 
 """
 
+IO.puts Servy.Handler.handle(request)
+
 request = """
 GET /bears/1 HTTP/1.1
 Host: example.com
